@@ -1,0 +1,28 @@
+version: "1"
+
+package:
+  id: io.github.indigoDock
+  name: indigoDock
+  version: 1.0.1.1
+  kind: app
+  description: |
+    Qt Docking extension written for Scribus
+
+command:
+  - /opt/apps/io.github.indigoDock/files/bin/TestLayout
+
+base: org.deepin.foundation/23.0.0
+runtime: org.deepin.Runtime/23.0.1
+
+sources:
+  - kind: git
+    url: https://github.com/nitramr/indigoDock.git
+    version: master
+    commit: 6fd49d5b8d48b2b90aca39d57fae0735fb5ce79a
+
+build: |
+  cd /project/linglong/sources/indigoDock.git
+  git apply ../../../0001-install.patch
+  qmake -makefile PREFIX=${PREFIX} LIB_INSTALL_DIR=${PREFIX}/lib/${TRIPLET}
+  make -j$(nproc)
+  make install

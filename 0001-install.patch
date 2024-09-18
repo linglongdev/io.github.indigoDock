@@ -1,0 +1,48 @@
+From 4554ef3dd19b715344dcfd60bd818a780eb2662f Mon Sep 17 00:00:00 2001
+From: wjyrich <1071633242@qq.com>
+Date: Thu, 12 Sep 2024 13:35:15 +0800
+Subject: [PATCH] install
+
+---
+ TestLayout.desktop | 11 +++++++++++
+ TestLayout.pro     |  8 ++++++++
+ 2 files changed, 19 insertions(+)
+ create mode 100644 TestLayout.desktop
+
+diff --git a/TestLayout.desktop b/TestLayout.desktop
+new file mode 100644
+index 0000000..e3d2f43
+--- /dev/null
++++ b/TestLayout.desktop
+@@ -0,0 +1,11 @@
++[Desktop Entry]
++Categories=Accessibility;Qt;Utility;
++Exec=TestLayout
++Name=TestLayout
++Name[zh_CN]=TestLayout
++Icon=pan-colour
++StartupNotify=false
++Terminal=false
++Type=Application
++GenericName=TestLayout
++Version=
+diff --git a/TestLayout.pro b/TestLayout.pro
+index 64b0778..ef2a47c 100644
+--- a/TestLayout.pro
++++ b/TestLayout.pro
+@@ -73,3 +73,11 @@ OBJECTS_DIR = $${BUILD_DIRECTORY}
+ MOC_DIR = $${BUILD_DIRECTORY}
+ RCC_DIR = $${BUILD_DIRECTORY}
+ UI_DIR = $${BUILD_DIRECTORY}
++
++target.path = $$PREFIX/bin
++desktop.files = TestLayout.desktop
++desktop.path = $$PREFIX/share/applications/
++icons.path = $$PREFIX/share/icons/hicolor/apps/
++icons.files = data/icons/dark/pan-colour.png
++
++INSTALLS += target desktop icons
+\ No newline at end of file
+-- 
+2.43.4
+
